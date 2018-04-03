@@ -1,0 +1,113 @@
+body{
+    background: #003333;
+}
+.head-appname{
+    margin-bottom: 10px;
+}
+.login-container {
+    width: 375px;
+    margin: 0 auto;
+    margin-top: 80px;
+}
+.footer-login-form{
+    padding-top: 30px;
+}
+.center {
+    text-align: center!important;
+}
+.fl-right{
+    float: right;
+}
+h1 {
+    font-size: 32px;
+}
+h1, h4 {
+    font-weight: 400;
+}
+h4 {
+    font-size: 18px;
+}
+h1, h4 {
+    font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.blue {
+    color: #478FCA!important;
+}
+.space-4 {
+    max-height: 1px;
+    min-height: 1px;
+    overflow: hidden;
+    margin: 30px 0 5px;
+    border-top: 1px dotted #A6C4DB;
+}
+.space-6 {
+    max-height: 1px;
+    min-height: 1px;
+    overflow: hidden;
+    margin: 6px 0 5px;
+}
+.position-relative {
+    position: relative;
+}
+.widget-box {
+    padding: 0;
+    box-shadow: none;
+    margin: 3px 0;
+    border: 1px solid #CCC;
+}
+.green {
+    color: #69AA46!important;
+}
+.text-align {
+    text-align: center;
+}
+.red {
+    color: #DD5A43!important;
+}
+.white {
+    color: #FFF!important;
+}
+.blue {
+    color: #478FCA!important;
+}
+h4.bigger {
+    font-size: 19px;
+}
+.header {
+    line-height: 28px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    padding-bottom: 4px;
+    /* border-bottom: 1px solid #CCC; */
+}
+.lighter {
+    font-weight: lighter;
+}
+.block {
+    display: block!important;
+}
+label {
+    font-weight: 400;
+    font-size: 14px;
+}
+.btn-primary, .btn-primary.focus, .btn-primary:focus {
+    background-color: #428BCA!important;
+    border-color: #428BCA;
+}
+.or-login {
+    position: relative;
+    top: -14px;
+    padding: 0 8px;
+    background: #ffffff;
+    color: #5090C1;
+    font-size: 15px;
+}
+.social-login {
+    margin-bottom: 10px;
+}
+.social-login>a.btn {
+    width: 37px;
+    height: 37px;
+    border-radius: 50%;
+    border-color: #ffffff;
+}
