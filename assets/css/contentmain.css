@@ -46,3 +46,6 @@
     font-weight: 600px;
     color: #3883de;
 }
+button#edit-btn {
+    border: none;
+}

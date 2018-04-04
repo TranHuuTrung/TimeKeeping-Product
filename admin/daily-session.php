@@ -50,9 +50,9 @@
                             <td><?php echo ($i + 1) ?></td>
                             <td><?php echo $data_daily["name"]?></td>
                             <td><?php echo $data_daily["userCode"]?></td>
-                            <td><?php echo $data_daily["timeIn"]?></td>
-                            <td><?php echo $data_daily["timeOut"]?></td>
-                            <td><?php echo $data_daily["timeOut"]?></td>
+                            <td><?php echo $data_daily["timeCheck"]?></td>
+                            <td><?php echo $data_daily["timeCheck"]?></td>
+                            <td><?php echo $data_daily["timeCheck"]?></td>
                         </tr>
                         <?php
                         $i++;

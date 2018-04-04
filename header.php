@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="assets/fonts/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/index.css">
-    <title>Document</title>
+    <title>Đồ Án Vi Điều Khiển</title>
 </head>
 <body>
     <div class="row">

@@ -1,6 +1,8 @@
 <?php
+ ob_start();
  session_start();
  require_once("../includes/connection.php");
+ require_once("checkLogin.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">

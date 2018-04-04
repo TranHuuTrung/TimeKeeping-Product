@@ -1,4 +1,5 @@
 <?php 
+ob_start();
 session_start();
 ?>
 <?php include "./header.php" ?>
@@ -97,3 +98,4 @@ session_start();
     </div> <!-- end panel -->
     
 <?php include "./footer.php" ?>            
+<?php ob_end_flush(); ?>

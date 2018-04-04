@@ -19,13 +19,13 @@
         <ul class="nav nav-list" style="top: 10px;">
             <li class="">
                 <a href="home.php">
-                    <i class="menu-icon fa fa-tachometer"></i>
+                    <i class="menu-icon fa fa-home"></i>
                     <span class="menu-text"> Dashboard </span>
                 </a>
             </li>
             <li class="">
-                <a href="home.php">
-                    <i class="menu-icon fa fa-home"></i>
+                <a href="manager-user.php">
+                    <i class="menu-icon fa fa-tachometer"></i>
                     <span class="menu-text"> Manager User </span>
                 </a>
             </li>
@@ -55,13 +55,13 @@
             </li>
 
             <li class="">
-                <a href="gallery.html">
+                <a href="gallery.php">
                     <i class="menu-icon fa fa-picture-o"></i>
                     <span class="menu-text"> Gallery </span>
                 </a>
             </li>
             <li class="">
-                <a href="gallery.html">
+                <a href="gallery.php">
                     <i class="menu-icon fa fa-picture-o"></i>
                     <span class="menu-text"> Add new user </span>
                 </a>
