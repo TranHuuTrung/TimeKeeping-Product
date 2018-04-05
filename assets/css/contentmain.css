@@ -49,3 +49,9 @@
 button#edit-btn {
     border: none;
 }
+.mb-5 {
+    margin-bottom: 5px;
+}
+div#table-manager-user_length {
+    margin-bottom: 20px;
+}

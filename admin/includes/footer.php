@@ -24,6 +24,7 @@
     <!-- jQuery template bootstrap depend on it -->
     <script src="../assets/js/jquery-3.2.1.min.js"></script>
     <script src="../assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../assets/js/datatables.min.js"></script>
     <script src="../assets/js/myscript.js"></script>
     <?php ob_end_flush(); ?>
 </body>

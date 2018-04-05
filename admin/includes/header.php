@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="../assets/css/reset.css">
     <link rel="stylesheet" href="../assets/css/header.css">
     <link rel="stylesheet" href="../assets/css/home.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/datatables.min.css"/>
     <link rel="stylesheet" href="../assets/css/contentmain.css">
     <title>Đồ Án Vi Điều Khiển</title>
 </head>

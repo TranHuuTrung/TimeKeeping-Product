@@ -26,11 +26,6 @@
       
 
         ?>
-        <?php
-        if (isset($_POST['edit-btn'])) {
-           header('Location: edit-user-info.php');
-        }
-        ?>
         <!-- end xóa thành viên -->
         <div class="content-main col-xs-7 col-sm-10 col-md-10 col-lg-10">
              
@@ -41,7 +36,7 @@
             </div>
 
              
-             <div class="table-responsive col-md-10 col-md-offset-1 col-lg-10">
+             <div class="col-md-10 col-md-offset-1 col-lg-10">
                 <?php
                     //thực hiện câu sql để lấy thông tin
                     $sql_users = "SELECT * FROM users";
@@ -49,7 +44,7 @@
                     $query_users = mysqli_query($connect, $sql_users);
                     
                 ?>
-                <table class="table table-bordered table-hover text-center">
+                <table id="table-manager-user" class="table table-bordered table-hover text-center">
                     <thead>
                         <tr>
                             <th class="text-center"> STT </th>
@@ -80,6 +75,10 @@
                                 <!-- method="post" action="page1.php?submit=true" -->
                                 <form style="display: inline-block" action="edit-user-info.php" method="POST">
                                     <input type="hidden" name="idUserCode" value="<?php echo $data_users["id"] ?>"/>
+                                    <input type="hidden" name="name" value="<?php echo $data_users["name"] ?>"/>
+                                    <input type="hidden" name="class" value="<?php echo $data_users["class"] ?>"/>
+                                    <input type="hidden" name="gender" value="<?php echo $data_users["gender"] ?>"/>
+                                    <input type="hidden" name="address" value="<?php echo $data_users["address"] ?>"/>
                                     <button id="edit-btn" class="label label-success">
                                          Chỉnh Sửa
                                     </button>
