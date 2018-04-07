@@ -74,7 +74,7 @@
                                 <!-- <a href="edit-user-info.php?id=<?php ; ?>" class="label label-success">Chỉnh Sửa</a> -->
                                 <!-- method="post" action="page1.php?submit=true" -->
                                 <form style="display: inline-block" action="edit-user-info.php" method="POST">
-                                    <input type="hidden" name="idUserCode" value="<?php echo $data_users["id"] ?>"/>
+                                    <input type="hidden" name="id" value="<?php echo $data_users["id"] ?>"/>
                                     <input type="hidden" name="name" value="<?php echo $data_users["name"] ?>"/>
                                     <input type="hidden" name="class" value="<?php echo $data_users["class"] ?>"/>
                                     <input type="hidden" name="gender" value="<?php echo $data_users["gender"] ?>"/>
