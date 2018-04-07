@@ -60,11 +60,5 @@
                     <span class="menu-text"> Gallery </span>
                 </a>
             </li>
-            <li class="">
-                <a href="gallery.php">
-                    <i class="menu-icon fa fa-picture-o"></i>
-                    <span class="menu-text"> Add new user </span>
-                </a>
-            </li>
         </ul><!-- /.nav-list -->
     </div>

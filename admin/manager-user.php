@@ -44,6 +44,10 @@
                     $query_users = mysqli_query($connect, $sql_users);
                     
                 ?>
+                
+                <button type="button" onclick="onAddUser()" class="btn btn-primary mb-5">
+                     <span class="fa fa-plus"></span>&nbsp; Thêm người dùng
+                </button>
                 <table id="table-manager-user" class="table table-bordered table-hover text-center">
                     <thead>
                         <tr>
@@ -94,8 +98,12 @@
                     </tbody>
                 </table>
             </div> 
-            
         </div>
+        <script>
+        function onAddUser(){
+            window.location.href="./add-user.php";
+        }
+        </script>
     
     </div>
 <?php include("includes/footer.php") ?>
