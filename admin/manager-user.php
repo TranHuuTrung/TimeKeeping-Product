@@ -36,7 +36,7 @@
             </div>
 
              
-             <div class="col-md-10 col-md-offset-1 col-lg-10">
+             <div class="table-responsive col-md-10 col-md-offset-1 col-lg-10">
                 <?php
                     //thực hiện câu sql để lấy thông tin
                     $sql_users = "SELECT * FROM users";
@@ -48,7 +48,7 @@
                 <button type="button" onclick="onAddUser()" class="btn btn-primary mb-5">
                      <span class="fa fa-plus"></span>&nbsp; Thêm người dùng
                 </button>
-                <table id="table-manager-user" class="table table-bordered table-hover text-center">
+                <table id="displayDataTable" class="table display table-bordered table-hover text-center">
                     <thead>
                         <tr>
                             <th class="text-center"> STT </th>

@@ -8,7 +8,7 @@
             <button class="btn btn-info">
                 <i class="fa fa-pencil"></i>
             </button>
-            <button class="btn btn-warning">
+            <button onclick="managerUser()" class="btn btn-warning">
                 <i class="fa fa-users"></i>
             </button>
             <button class="btn btn-danger">
@@ -62,3 +62,9 @@
             </li>
         </ul><!-- /.nav-list -->
     </div>
+
+    <script>
+        function managerUser(){
+            window.location.href="./manager-user.php";
+        }
+    </script>
