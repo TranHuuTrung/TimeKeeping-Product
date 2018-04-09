@@ -48,7 +48,7 @@
                 <button type="button" onclick="onAddUser()" class="btn btn-primary mb-5">
                      <span class="fa fa-plus"></span>&nbsp; Thêm người dùng
                 </button>
-                <table id="displayDataTable" class="table display table-bordered table-hover text-center">
+                <table class="displayDataTable table display table-bordered table-hover text-center">
                     <thead>
                         <tr>
                             <th class="text-center"> STT </th>

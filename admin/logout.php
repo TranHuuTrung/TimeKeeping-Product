@@ -5,5 +5,5 @@
        unset($_SESSION['username']);
        unset($_SESSION['password']);
        session_destroy();
-       header('Location: http://localhost/doanwebvdk/index.php');
+       header('Location: ../index.php');
 ?>

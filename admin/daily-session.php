@@ -30,7 +30,7 @@
             </div>
             
             <div class="table-responsive col-md-10 col-md-offset-1 col-lg-10">
-                <table class="table table-bordered table-hover text-center">
+                <table class="displayDataTable table table-bordered table-hover text-center">
                     <thead>
                         <tr>
                             <th class="text-center"> STT </th>

@@ -54,6 +54,18 @@ button#edit-btn {
 .mt-10{
     margin-top: 10px;
 }
-div#table-manager-user_length {
-    margin-bottom: 20px;
+div#DataTables_Table_0_length {
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+.green{
+    color: green;
+}
+.red{
+    color: red;
+}
+.name-user-statistics.col-md-10.col-md-offset-1.col-lg-10 {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-left: 25px;
 }

@@ -55,9 +55,9 @@
             </li>
 
             <li class="">
-                <a href="gallery.php">
+                <a href="monthly-statistics.php">
                     <i class="menu-icon fa fa-picture-o"></i>
-                    <span class="menu-text"> Gallery </span>
+                    <span class="menu-text"> Monthly Statistics </span>
                 </a>
             </li>
         </ul><!-- /.nav-list -->

@@ -64,7 +64,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-12 mb-5">Address :</label>
                                 <div class="col-sm-12">
-                                <input required type="text" class="form-control" name="address" placeholder="class" value="<?php echo $_POST["address"] ?>">
+                                <input required type="text" class="form-control" name="address" placeholder="address" value="<?php echo $_POST["address"] ?>">
                                 </div>
                             </div>
                             
