@@ -26,7 +26,7 @@
                     <span class="fa  fa-angle-left"></span>
                 </span>
                 </a>
-                Tháng 2 / 2018
+                <span class="month-sp">Tháng 2 / 2018</span>
                 <a href=""> 
                 <span class="label label-success">
                     <span class="fa fa-angle-right"></span>
@@ -36,9 +36,9 @@
 
              <div class="row">
                 <div class="name-user-statistics col-md-10 col-md-offset-1 col-lg-10">
-                    <span>Họ và tên: </span> Trần Hữu Trung
+                    <span class="sp-name-user">Họ và tên: </span> Trần Hữu Trung
                 </div>
-            </div>
+            </div>s
             
 
             <div class="table-responsive col-md-10 col-md-offset-1 col-lg-10">
@@ -67,18 +67,18 @@
                         <tr>
                             <td>2</td>
                             <td>
-                               <span class="fa fa-check"></span>
+                               <span class="fa fa-check green"></span>
                             </td>
                             <td>
-                               <span class="fa fa-check"></span>
+                               <span class="fa fa-check green"></span>
                             </td>
-                            <td>Không quẹt thẻ</td>
+                            <td></td>
                             <td>1</td>
                         </tr> 
                         <tr>
                             <td>3</td>
                             <td>
-                               <span class="fa fa-check"></span>
+                               <span class="fa fa-check green"></span>
                             </td>
                             <td>
                                <!-- <span class="fa fa-check"></span> -->
@@ -89,12 +89,12 @@
                         <tr>
                             <td>4</td>
                             <td>
-                               <span class="fa fa-check"></span>
+                               <span class="fa fa-check red"></span>
                             </td>
                             <td>
-                               <span class="fa fa-check"></span>
+                               <span class="fa fa-check green"></span>
                             </td>
-                            <td></td>
+                            <td>Không quẹt thẻ</td>
                             <td>1</td>
                         </tr> 
                     </tbody>

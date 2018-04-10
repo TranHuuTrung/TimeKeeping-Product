@@ -51,6 +51,9 @@ button#edit-btn {
 .mb-5 {
     margin-bottom: 5px;
 }
+.mb-15{
+    margin-bottom: 15px;
+}
 .mt-10{
     margin-top: 10px;
 }
@@ -68,4 +71,34 @@ div#DataTables_Table_0_length {
     margin-bottom: 15px;
     margin-top: 15px;
     padding-left: 25px;
+    font-size: 18px;
+}
+.sp-name-user{
+    font-weight: bold;
+}
+span.month-sp {
+    margin: -7px 10px 0px 10px;
+    font-size: 18px;
+}
+.controduction-app{
+    padding-left: 50px;
+    padding-right: 50px; 
+}
+.controduction-app h1{
+    font-size: 22px;
+    font-weight: 600;
+}
+.controduction-app strong{
+    font-size: 18px;
+}
+.content-introduce{
+    font-size: 17px;
+    line-height: 1.5;
+}
+.item-content{
+    font-size: 18px;
+    font-weight: 600;
+}
+.sub-item-content{
+    padding-left: 15px;
 }
