@@ -1,5 +1,5 @@
  <!-- wrap main page -->
- <div class="row wrap-main">
+ <div class="row wrap-main is-table-row">
     <div id="nav-left" class="col-xs-5 col-sm-2 col-md-2 col-lg-2">
         <div id="shortcuts">
             <button class="btn btn-success">
@@ -20,7 +20,7 @@
             <li class="">
                 <a href="home.php">
                     <i class="menu-icon fa fa-home"></i>
-                    <span class="menu-text"> Dashboard </span>
+                    <span class="menu-text"> Home </span>
                 </a>
             </li>
             <li class="">
@@ -44,20 +44,18 @@
                     </span>
                 </a>
             </li>
-
-                <li class="">
+            <li class="">
+                <a href="monthly-statistics.php">
+                    <i class="menu-icon fa fa-map"></i>
+                    <span class="menu-text"> Monthly Statistics </span>
+                </a>
+            </li>
+            <li class="">
                 <a href="about-application.php">
                     <i class="menu-icon fa fa-question-circle-o"></i>
                     <span class="menu-text">
                         About Application
                     </span>
-                </a>
-            </li>
-
-            <li class="">
-                <a href="monthly-statistics.php">
-                    <i class="menu-icon fa fa-picture-o"></i>
-                    <span class="menu-text"> Monthly Statistics </span>
                 </a>
             </li>
         </ul><!-- /.nav-list -->

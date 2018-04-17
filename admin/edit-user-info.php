@@ -6,7 +6,7 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
                         <i class="fa fa-home"></i>
-                        <a href="#">Home</a>
+                        <a href="home.php">Home</a>
                     </li>
                     <li class="breadcrumb-item active" aria-current="page">Edit info user</li>
                 </ol>

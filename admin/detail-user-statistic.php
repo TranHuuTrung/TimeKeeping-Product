@@ -6,7 +6,7 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
                         <i class="fa fa-home"></i>
-                        <a href="#">Home</a>
+                        <a href="home.php">Home</a>
                     </li>
                     <li class="breadcrumb-item active" aria-current="page">ManagerUser</li>
                 </ol>
@@ -20,13 +20,13 @@
                 </div>
             </div>
            
-            <div class="row text-center title-table">
+            <div class="row text-center title-table number-month-year">
                 <a href="">
                 <span class="label label-success">
                     <span class="fa  fa-angle-left"></span>
                 </span>
                 </a>
-                <span class="month-sp">Tháng 2 / 2018</span>
+                <span class="month-sp">Tháng <?php echo date('m/Y', strtotime("2018-09-15")) ; ?> </span>
                 <a href=""> 
                 <span class="label label-success">
                     <span class="fa fa-angle-right"></span>
@@ -34,11 +34,11 @@
                 </a>
             </div>
 
-             <div class="row">
+            <div class="row">
                 <div class="name-user-statistics col-md-10 col-md-offset-1 col-lg-10">
                     <span class="sp-name-user">Họ và tên: </span> Trần Hữu Trung
                 </div>
-            </div>s
+            </div>
             
 
             <div class="table-responsive col-md-10 col-md-offset-1 col-lg-10">
@@ -54,7 +54,36 @@
                     </thead>
                     <tbody> 
                         <tr>
-                            <td>1</td>
+                            <td><span>
+                            <?php 
+                                $weekday = date("l");
+                                $weekday = strtolower($weekday);
+                                switch($weekday) {
+                                    case 'monday':
+                                        $weekday = 'Thứ hai';
+                                        break;
+                                    case 'tuesday':
+                                        $weekday = 'Thứ ba';
+                                        break;
+                                    case 'wednesday':
+                                        $weekday = 'Thứ tư';
+                                        break;
+                                    case 'thursday':
+                                        $weekday = 'Thứ năm';
+                                        break;
+                                    case 'friday':
+                                        $weekday = 'Thứ sáu';
+                                        break;
+                                    case 'saturday':
+                                        $weekday = 'Thứ bảy';
+                                        break;
+                                    default:
+                                        $weekday = 'Chủ nhật';
+                                        break;
+                                }
+                                echo $weekday.' - Ngày '.date('d/m') ;
+                            ?>    
+                            </span></td>
                             <td>
                                <span class="fa fa-check green"></span>
                             </td>
@@ -99,9 +128,26 @@
                         </tr> 
                     </tbody>
                 </table>
+
+                <div class="row">
+                    <div class="name-user-statistics col-md-12 col-lg-12">
+                        <label class="total-result-user">Total result </label>
+                        <ul class="detail-total-result-user">
+                            <li> Tổng công: 25</li>
+                            <li> Số ngày nghỉ: 1</li>
+                            <li>  Số lỗi: 1 </li>
+                            <li>   <button type="button" class="btn btn-primary" onclick="onBackMonthlyStatistics()">Back</button> </li>
+                        </ul>
+                    </div>
+                </div>
+
             </div>
         </div>
-
+        <script>
+            function onBackMonthlyStatistics(){
+                window.location.href="./monthly-statistics.php";
+            }
+        </script>
 
     </div>
 <?php include("includes/footer.php") ?>

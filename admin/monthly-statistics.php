@@ -6,9 +6,9 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
                         <i class="fa fa-home"></i>
-                        <a href="#">Home</a>
+                        <a href="home.php">Home</a>
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page">ManagerUser</li>
+                    <li class="breadcrumb-item active" aria-current="page">monthly-statistics</li>
                 </ol>
             </nav>
         </div>
@@ -19,13 +19,14 @@
                     <h2>Bảng thống kê hàng tháng</h2>
                 </div>
             </div>
-            <div class="row text-center title-table">
+
+            <div class="row text-center title-table number-month-year">
                 <a href="">
                 <span class="label label-success">
                     <span class="fa  fa-angle-left"></span>
                 </span>
                 </a>
-                Tháng 2 / 2018
+                <span class="month-sp">Tháng <?php echo"2"?> / <?php echo "2018" ?></span>
                 <a href=""> 
                 <span class="label label-success">
                     <span class="fa fa-angle-right"></span>
