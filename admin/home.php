@@ -6,12 +6,12 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
                         <i class="fa fa-home"></i>
-                        <a href="#">Home</a>
+                        <a href="">Home</a>
                     </li>
                 </ol>
             </nav>
         </div>
-        <div id="main" class="content-main controduction-app col-xs-7 col-sm-10 col-md-10 col-lg-10">
+        <div class="content-main controduction-app col-xs-7 col-sm-10 col-md-10 col-lg-10">
          
             <div class="row text-center">
                 <div class="alert alert-success col-sm-6 col-sm-offset-3 col-md-6 col-lg-6">

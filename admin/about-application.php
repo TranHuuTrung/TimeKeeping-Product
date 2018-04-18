@@ -6,7 +6,7 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
                         <i class="fa fa-home"></i>
-                        <a href="#">Home</a>
+                        <a href="home.php">Home</a>
                     </li>
                     <li class="breadcrumb-item active" aria-current="page">About application</li>
                 </ol>
@@ -19,4 +19,17 @@
         </div>
     
     </div>
+    <!-- <script type="text/javascript">
+        $(document).ready(function(){
+        var max_height = 0;
+        //Duyệt qua 3 cột để lấy kích thước của cột lớn nhất
+        $("#nav-left,.content-main").each(function(){
+            if($(this).height() > max_height)
+            max_height = $(this).height();
+        });
+        //Gán độ cao 3 cột theo giá trị max_height
+        $("#nav-left,.content-main").height(max_height);
+        });
+    </script> -->
+
 <?php include("includes/footer.php") ?>
