@@ -33,12 +33,18 @@
                 <table class="displayDataTable table table-bordered table-hover text-center">
                     <thead>
                         <tr>
-                            <th class="text-center"> STT </th>
-                            <th class="text-center"> Name </th>
-                            <th class="text-center"> Code </th>
-                            <th class="text-center"> Time In </th>
-                            <th class="text-center"> Time Out </th>
-                            <th class="text-center"> Period </th>
+                            <th rowspan="2" class="text-center one-row"> STT </th>
+                            <th rowspan="2" class="text-center one-row"> Name </th>
+                            <th rowspan="2" class="text-center one-row"> UserCode </th>
+                            <th colspan="2" class="text-center">Morning</th>
+                            <th colspan="2" class="text-center">Afternoon</th>
+                            <th rowspan="2" class="text-center one-row"> Date </th>
+                        </tr>
+                        <tr>
+                            <td>TimeIn</td>
+                            <td>TimeOut</td>
+                            <td>TimeIn</td>
+                            <td>TimeOut</td>
                         </tr>
                     </thead>
                     <tbody> 
@@ -50,9 +56,11 @@
                             <td><?php echo ($i + 1) ?></td>
                             <td><?php echo $data_daily["name"]?></td>
                             <td><?php echo $data_daily["userCode"]?></td>
-                            <td><?php echo $data_daily["timeCheck"]?></td>
-                            <td><?php echo $data_daily["timeCheck"]?></td>
-                            <td><?php echo $data_daily["timeCheck"]?></td>
+                            <td><?php echo $data_daily["timeInMorning"]?></td>
+                            <td><?php echo $data_daily["timeOutMorning"]?></td>
+                            <td><?php echo $data_daily["timeInAfternoon"]?></td>
+                            <td><?php echo $data_daily["timeOutAfternoon"]?></td>
+                            <td><?php echo $data_daily["day"]?></td> 
                         </tr>
                         <?php
                         $i++;

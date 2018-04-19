@@ -19,7 +19,7 @@
              
              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
                  <div class="thumbnail aboutteam">
-                     <img src="assets/images/trung.png" alt="person1">
+                     <img src="assets/images/trung.jpg" alt="person1">
                      <div class="caption text-center info">
                          <h3>Trần Hữu Trung</h3>
                          <p>
@@ -34,7 +34,7 @@
 
              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 ">
                  <div class="thumbnail aboutteam">
-                     <img src="assets/images/logo1.png" alt="person1">
+                     <img src="assets/images/tuyen.jpg" alt="person1">
                      <div class="caption text-center info">
                         <h3>Lê Đình Tuyến</h3>
                          <p>
@@ -49,7 +49,7 @@
 
              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 ">
                  <div class="thumbnail aboutteam">
-                     <img src="assets/images/logo1.png" alt="person1">
+                     <img src="assets/images/dai.jpg" alt="person1">
                      <div class="caption text-center info">
                         <h3>Trần Quốc Đại</h3>
                          <p>

@@ -114,3 +114,6 @@ span.month-sp {
 .detail-total-result-user li {
     margin-bottom: 10px;
 }
+th.text-center.one-row {
+    vertical-align: middle;
+}
