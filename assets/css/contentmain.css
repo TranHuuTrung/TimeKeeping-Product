@@ -76,6 +76,8 @@ div#DataTables_Table_0_length {
 }
 .sp-name-user{
     font-weight: bold;
+    display: inline-block;
+    margin-bottom: 10px;
 }
 span.month-sp {
     margin: -7px 10px 0px 10px;

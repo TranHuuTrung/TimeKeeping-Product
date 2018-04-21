@@ -8,7 +8,7 @@
                         <i class="fa fa-home"></i>
                         <a href="home.php">Home</a>
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page">ManagerUser</li>
+                    <li class="breadcrumb-item active" aria-current="page">Detail user statistic</li>
                 </ol>
             </nav>
         </div>
@@ -19,24 +19,65 @@
                     <h2>Bảng thống kê hàng tháng từng nhân viên</h2>
                 </div>
             </div>
-           
+            <!-- nhan du lieu tu monthly-statistics -->
+            <?php
+                $id = $_POST["id"];
+                $month = $_POST["month"];
+                $year = $_POST["year"];
+                var_dump($month);
+                var_dump($year);
+            ?>
+
+            <script type="text/javascript">
+                var month = <?php echo $month?>;
+                var year = <?php echo $year ?>;
+                function add(){ 
+                    if(month > 0 && month < 13){
+                        month++;
+                    }
+                    if(month === 13){
+                        month = 1;
+                        year++;
+                    }
+                    document.getElementById('month').innerHTML = month;
+                    document.getElementById('year').innerHTML = year;
+
+                }
+                
+                function sub(){
+                    if(month > 0){
+                        month--;
+                    }
+                    if(month === 0){
+                        month=12;
+                        year--;
+                    }
+                    document.getElementById('month').innerHTML = month;
+                    document.getElementById('year').innerHTML = year;
+                }
+            </script>
+      
+            <?php
+                $sql_user_statistics = "SELECT * FROM user_sesion as us INNER JOIN users WHERE us.id = users.userCode";
+                $query_user_statistics = mysqli_query($connect, $sql_user_statistics);
+                // var_dump($query_user_statistics);
+            ?> 
             <div class="row text-center title-table number-month-year">
-                <a href="">
-                <span class="label label-success">
+                <button onclick="sub()" class="label label-success">
                     <span class="fa  fa-angle-left"></span>
-                </span>
-                </a>
-                <span class="month-sp">Tháng <?php echo date('m/Y', strtotime("2018-09-15")) ; ?> </span>
-                <a href=""> 
-                <span class="label label-success">
-                    <span class="fa fa-angle-right"></span>
-                </span>   
-                </a>
+                </button>
+                <!-- date('m/Y', strtotime("2018-09-15")) -->
+                <span class="month-sp">Tháng <i id="month"><script>document.write(month)</script></i> / <i id="year"><script>document.write(year)</script></i></span>
+                <button onclick="add()" class="label label-success">
+                    <i class="fa fa-angle-right"></i>
+                </button>   
             </div>
 
             <div class="row">
                 <div class="name-user-statistics col-md-10 col-md-offset-1 col-lg-10">
-                    <span class="sp-name-user">Họ và tên: </span> Trần Hữu Trung
+                    <span class="sp-name-user">Họ và tên: </span> <?php echo $_POST['name'];?>
+                    <br>
+                    <span class="sp-name-user">Class: </span> 15T2
                 </div>
             </div>
             
@@ -131,7 +172,7 @@
 
                 <div class="row">
                     <div class="name-user-statistics col-md-12 col-lg-12">
-                        <label class="total-result-user">Total result </label>
+                        <label class="total-result-user">KẾT QUẢ THÁNG 09/2018 </label>
                         <ul class="detail-total-result-user">
                             <li> Tổng công: 25</li>
                             <li> Số ngày nghỉ: 1</li>
