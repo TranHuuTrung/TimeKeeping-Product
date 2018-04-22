@@ -21,11 +21,25 @@
             </div>
             <!-- nhan du lieu tu monthly-statistics -->
             <?php
+              if(isset($_POST["id"])&& isset($_POST["month"])&&isset($_POST["year"])){
                 $id = $_POST["id"];
+                $name = $_POST['name'];
                 $month = $_POST["month"];
                 $year = $_POST["year"];
-                var_dump($month);
-                var_dump($year);
+                $sum_day = $_POST["sum_day"];
+                $day_off = $_POST["day_off"];
+                $mistake = $_POST["mistake"];
+              }else{
+                  $id = 0;
+                  $name ="";
+                  $month = 0;
+                  $year = 0;
+                  $sum_day = 0;
+                  $day_off = 0;
+                  $mistake = 0;
+              }
+                
+               
             ?>
 
             <script type="text/javascript">
@@ -75,9 +89,9 @@
 
             <div class="row">
                 <div class="name-user-statistics col-md-10 col-md-offset-1 col-lg-10">
-                    <span class="sp-name-user">Họ và tên: </span> <?php echo $_POST['name'];?>
+                    <span class="sp-name-user">Họ và tên: </span> <?php echo $name;?>
                     <br>
-                    <span class="sp-name-user">Class: </span> 15T2
+                    <span class="sp-name-user">Address: </span> 15T2
                 </div>
             </div>
             
@@ -94,9 +108,28 @@
                         </tr>
                     </thead>
                     <tbody> 
-                        <tr>
+                    <?php
+                            $sql_result = "SELECT * FROM user_session WHERE userCode = $id AND MONTH(day) = $month AND YEAR(day) = $year";
+                            $result = mysqli_query($connect, $sql_result);                           
+                            while($row = mysqli_fetch_array($result)){
+                            ?>
+
+                        <tr>                           
                             <td><span>
                             <?php 
+                                // $status_morning = 1; // 1: full, 0.5: half, 0: none
+                                // $status_afternoon = 0.5;
+                                // $css_check = "";
+                                // function check_color($status){
+                                //     if($status === 1){
+                                //        return $css_check = "fa fa-check green";
+                                //     }
+                                //     if($status === 0.5){
+                                //        return $css_check = "fa fa-check red";
+                                //     }
+                                    
+                                // }
+                                
                                 $weekday = date("l");
                                 $weekday = strtolower($weekday);
                                 switch($weekday) {
@@ -125,58 +158,44 @@
                                 echo $weekday.' - Ngày '.date('d/m') ;
                             ?>    
                             </span></td>
+                            <!-- so ngay lam bang = (wwhile(row) { buoi++ })=> ngay buoi/2 -->
+                            <!-- (SELECT users.name, users.address FROM user_session INNER JOIN users ON user_session.userCode = users.id WHERE user_session.timeInMorning != "00:00:00" AND user_session.userCode = "102150142")
+UNION ALL
+(SELECT users.name, users.address FROM user_session INNER JOIN users ON user_session.userCode = users.id WHERE user_session.timeInAfternoon != "00:00:00" AND user_session.userCode = "102150142") -->
                             <td>
-                               <span class="fa fa-check green"></span>
+                                <?php
+                                if($row['timeInMorning'] != "00:00:00" && $row['timeOutMorning'] != "00:00:00") {
+                                   echo '<span class="fa fa-check green"></span>';
+                                } else if($row['timeInMorning'] != "00:00:00" && $row['timeOutMorning'] == "00:00:00") {
+                                     echo '<span class="fa fa-check red"></span>';
+                                }
+                               ?>
                             </td>
+
                             <td>
-                               <span class="fa fa-check red"></span>
-                            </td>
-                            <td>Không quẹt thẻ</td>
-                            <td>1</td>
-                        </tr> 
-                        <tr>
-                            <td>2</td>
-                            <td>
-                               <span class="fa fa-check green"></span>
-                            </td>
-                            <td>
-                               <span class="fa fa-check green"></span>
-                            </td>
-                            <td></td>
-                            <td>1</td>
-                        </tr> 
-                        <tr>
-                            <td>3</td>
-                            <td>
-                               <span class="fa fa-check green"></span>
-                            </td>
-                            <td>
-                               <!-- <span class="fa fa-check"></span> -->
-                            </td>
-                            <td></td>
-                            <td>0.5</td>
-                        </tr> 
-                        <tr>
-                            <td>4</td>
-                            <td>
-                               <span class="fa fa-check red"></span>
-                            </td>
-                            <td>
-                               <span class="fa fa-check green"></span>
+                            <?php
+                                if($row['timeInAfternoon'] != "00:00:00" && $row['timeOutAfternoon'] != "00:00:00") {
+                                   echo '<span class="fa fa-check green"></span>';
+                                } else if($row['timeInAfternoon'] != "00:00:00" && $row['timeOutAfternoon'] == "00:00:00") {
+                                     echo '<span class="fa fa-check red"></span>';
+                                }
+                               ?>
                             </td>
                             <td>Không quẹt thẻ</td>
                             <td>1</td>
                         </tr> 
+
+                        <?php } ?>                       
                     </tbody>
                 </table>
 
                 <div class="row">
                     <div class="name-user-statistics col-md-12 col-lg-12">
-                        <label class="total-result-user">KẾT QUẢ THÁNG 09/2018 </label>
+                        <label class="total-result-user">KẾT QUẢ THÁNG <?php echo $month ?>/<?php echo $year ?> </label>
                         <ul class="detail-total-result-user">
-                            <li> Tổng công: 25</li>
-                            <li> Số ngày nghỉ: 1</li>
-                            <li>  Số lỗi: 1 </li>
+                            <li> Tổng công: <?php echo $sum_day?></li>
+                            <li> Số ngày nghỉ: <?php echo $day_off?></li>
+                            <li> Số lỗi: <?php echo $mistake?> </li>
                             <li>   <button type="button" class="btn btn-primary" onclick="onBackMonthlyStatistics()">Back</button> </li>
                         </ul>
                     </div>

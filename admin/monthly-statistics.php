@@ -49,13 +49,10 @@
                 
             ?>
             <?php
-             $date_start = '2018-04-16' ;
-             $date_end = '2018-04-25';
-             var_dump($date_start);
              //thực hiện câu sql để lấy thông tin
             // $sql_statistics = "SELECT * FROM user_session AS us INNER JOIN users WHERE (us.day BETWEEN CAST('2018-04-16' AS DATE) AND CAST('2018-04-20' AS DATE)) AND  us.userCode = users.id ";
              //thực hiện truy vấn dữ liệu 
-            $sql_statistics = "SELECT * FROM user_session AS us WHERE us.day = CAST('2018-04-20' AS DATE) ";
+            $sql_statistics = "SELECT * FROM user_session AS us INNER JOIN users WHERE MONTH(us.day) = $month_current AND YEAR(us.day) = $year_current AND us.userCode = users.id  ";
              
              $query_statistics = mysqli_query($connect, $sql_statistics);
              
@@ -109,22 +106,25 @@
                         ?>
                         <tr>
                             <td><?php echo ($i + 1)?></td>
-                            <td><?php echo $data_statistics["id"]?></td>
-                            <td><?php echo $data_statistics["id"]?></td>
+                            <td><?php echo $data_statistics["name"]?></td>
+                            <td><?php echo $data_statistics["address"]?></td>
                             <td>25</td>
                             <td>1</td>
                             <td>Lỗi</td>
-                            <!-- <td>
+                            <td>
                                 <form style="display: inline-block" action="detail-user-statistic.php" method="POST">
                                     <input type="hidden" name="id" value="<?php echo $data_statistics["id"] ?>"/>
                                     <input type="hidden" name="month" value="<?php  echo $month_current?>" />
                                     <input type="hidden" name="year" value="<?php  echo $year_current ?>" />
                                     <input type="hidden" name="name" value="<?php echo $data_statistics["name"]?>" />
+                                    <input type="hidden" name="sum_day" value="20" />
+                                    <input type="hidden" name="day_off" value="2" />
+                                    <input type="hidden" name="mistake" value="1" />
                                     <button id="detail-btn" class="label label-success">
                                         Chi tiết
                                     </button>
                                 </form>
-                            </td> -->
+                            </td>
                         </tr> 
                         <?php
                           $i++;
