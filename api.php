@@ -21,19 +21,23 @@ if(isset($_GET['userCode'])){
     $current_time = date('H:i');
     echo "Thời gian hiện tại: ".$current_time;
 
-    if($current_time >= date('H:i', strtotime('6:00')) && $current_time <= date('H:i', strtotime('8:30'))) {    
+    if($current_time >= date('H:i', strtotime('6:00')) && $current_time <= date('H:i', strtotime('8:30'))) {
+        create_new_record($id_user_code);
         if(is_inserted_time($id_user_code, "time_open_morning") == false) {
             insert_time($id_user_code, "time_open_morning");
         }
     } else if($current_time >= date('H:i', strtotime('11:30')) && $current_time <= date('H:i', strtotime('12:30'))) {
+        create_new_record($id_user_code);
         if(is_inserted_time($id_user_code, "time_close_morning") == false) {
             insert_time($id_user_code, "time_close_morning");
         }
     } else if($current_time >= date('H:i', strtotime('13:00')) && $current_time <= date('H:i', strtotime('14:00'))) {
+        create_new_record($id_user_code);
         if(is_inserted_time($id_user_code, "time_open_afternoon") == false) {
             insert_time($id_user_code, "time_open_afternoon");
         }
     } else if($current_time >= date('H:i', strtotime('17:00')) && $current_time <= date('H:i', strtotime('18:30'))) {
+        create_new_record($id_user_code);
         if(is_inserted_time($id_user_code, "time_close_afternoon") == false) {
             insert_time($id_user_code, "time_close_afternoon");
         }
@@ -44,11 +48,9 @@ if(isset($_GET['userCode'])){
 
 function is_inserted_time($id_user_code, $time) {
     $date = date("Y-m-d");
-    var_dump($date);
     $sql = "SELECT * FROM user_session WHERE id_user_code = $id_user_code AND date = '$date'";
     $query = mysqli_query($GLOBALS['connect'], $sql);
     $result = mysqli_fetch_array($query);
-    var_dump($result);
     if($result[$time] == "00:00:00") {
         return false;
     }
@@ -62,7 +64,16 @@ function insert_time($id_user_code, $time) {
     mysqli_query($GLOBALS['connect'], $sql);
 }
 
-
+function create_new_record($id_user_code) {
+    $date = date("Y-m-d");
+    $sql = "SELECT * FROM user_session WHERE id_user_code = $id_user_code AND date = '$date'";
+    $query = mysqli_query($GLOBALS['connect'], $sql);
+    $num_rows = mysqli_num_rows($query);
+    if($num_rows == 0) {
+        mysqli_query($GLOBALS['connect'], "INSERT INTO user_session(id_user_code, time_open_morning, time_close_morning, time_open_afternoon, time_close_afternoon, date) 
+            VALUES($id_user_code, '00:00:00', '00:00:00', '00:00:00', '00:00:00', '$date')");
+    }
+}
 //kiem tra xem usercode da co trong csdl chua neu co thi cho update time, neu khong thi dua usercode do va bang unknow_user
 
 ?>
