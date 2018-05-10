@@ -1,7 +1,6 @@
 <?php
 //auto create database for all available users every day
 //NOT on weekend
-
 require "./includes/connection.php";
 $current_date = date("Y-m-d");
 echo $current_date;
