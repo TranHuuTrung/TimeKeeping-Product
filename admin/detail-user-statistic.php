@@ -24,78 +24,37 @@
               if(isset($_POST["id"])&& isset($_POST["month"])&&isset($_POST["year"])){
                 $id = $_POST["id"];
                 $name = $_POST['name'];
+                $address = $_POST['address'];
                 $month = $_POST["month"];
                 $year = $_POST["year"];
-                $sum_day = $_POST["sum_day"];
+                $working_day = $_POST["working_day"];
                 $day_off = $_POST["day_off"];
-                $mistake = $_POST["mistake"];
               }else{
                   $id = 0;
                   $name ="";
-                  $month = 0;
-                  $year = 0;
-                  $sum_day = 0;
-                  $day_off = 0;
-                  $mistake = 0;
+                  $month = "0";
+                  $year = "0";
+                  $day_off = "0";
               }
                 
-               
             ?>
-
-            <script type="text/javascript">
-                var month = <?php echo $month?>;
-                var year = <?php echo $year ?>;
-                function add(){ 
-                    if(month > 0 && month < 13){
-                        month++;
-                    }
-                    if(month === 13){
-                        month = 1;
-                        year++;
-                    }
-                    document.getElementById('month').innerHTML = month;
-                    document.getElementById('year').innerHTML = year;
-
-                }
-                
-                function sub(){
-                    if(month > 0){
-                        month--;
-                    }
-                    if(month === 0){
-                        month=12;
-                        year--;
-                    }
-                    document.getElementById('month').innerHTML = month;
-                    document.getElementById('year').innerHTML = year;
-                }
-            </script>
-      
-            <?php
-                $sql_user_statistics = "SELECT * FROM user_sesion as us INNER JOIN users WHERE us.id = users.userCode";
-                $query_user_statistics = mysqli_query($connect, $sql_user_statistics);
-                // var_dump($query_user_statistics);
-            ?> 
             <div class="row text-center title-table number-month-year">
-                <button onclick="sub()" class="label label-success">
-                    <span class="fa  fa-angle-left"></span>
-                </button>
-                <!-- date('m/Y', strtotime("2018-09-15")) -->
-                <span class="month-sp">Tháng <i id="month"><script>document.write(month)</script></i> / <i id="year"><script>document.write(year)</script></i></span>
-                <button onclick="add()" class="label label-success">
-                    <i class="fa fa-angle-right"></i>
-                </button>   
+                <span class="month-sp">
+                    Tháng 
+                    <i id="month_display"><?php echo $month ?></i>
+                    /
+                    <i id="year_display"><?php echo $year ?></i>
+                </span>
             </div>
 
             <div class="row">
                 <div class="name-user-statistics col-md-10 col-md-offset-1 col-lg-10">
                     <span class="sp-name-user">Họ và tên: </span> <?php echo $name;?>
                     <br>
-                    <span class="sp-name-user">Address: </span> 15T2
+                    <span class="sp-name-user">Địa chỉ: </span> <?php echo $address; ?>
                 </div>
             </div>
             
-
             <div class="table-responsive col-md-10 col-md-offset-1 col-lg-10">
                 <table class="displayDataTable table display table-bordered table-hover text-center">
                     <thead>
@@ -108,29 +67,21 @@
                         </tr>
                     </thead>
                     <tbody> 
-                    <?php
-                            $sql_result = "SELECT * FROM user_session WHERE userCode = $id AND MONTH(day) = $month AND YEAR(day) = $year";
-                            $result = mysqli_query($connect, $sql_result);                           
-                            while($row = mysqli_fetch_array($result)){
-                            ?>
+                     
+                    <?php   
+                        $sql_result = "SELECT * FROM user_session WHERE userCode = $id AND MONTH(day) = $month AND YEAR(day) = $year ORDER BY DAY(day) ASC";
+                        $result = mysqli_query($connect, $sql_result); 
+                        $count_error_check = 0;    
+                        $count_day = 0;                      
+                        while($row = mysqli_fetch_array($result)){
+                        
+                    ?>
 
                         <tr>                           
                             <td><span>
                             <?php 
-                                // $status_morning = 1; // 1: full, 0.5: half, 0: none
-                                // $status_afternoon = 0.5;
-                                // $css_check = "";
-                                // function check_color($status){
-                                //     if($status === 1){
-                                //        return $css_check = "fa fa-check green";
-                                //     }
-                                //     if($status === 0.5){
-                                //        return $css_check = "fa fa-check red";
-                                //     }
-                                    
-                                // }
-                                
-                                $weekday = date("l");
+                                $error_check = false;
+                                $weekday = date("l", strtotime($row["day"]));
                                 $weekday = strtolower($weekday);
                                 switch($weekday) {
                                     case 'monday':
@@ -155,18 +106,19 @@
                                         $weekday = 'Chủ nhật';
                                         break;
                                 }
-                                echo $weekday.' - Ngày '.date('d/m') ;
+                                echo $weekday.' - Ngày '.date('d/m', strtotime($row["day"])) ;
                             ?>    
                             </span></td>
-                            <!-- so ngay lam bang = (wwhile(row) { buoi++ })=> ngay buoi/2 -->
-                            <!-- (SELECT users.name, users.address FROM user_session INNER JOIN users ON user_session.userCode = users.id WHERE user_session.timeInMorning != "00:00:00" AND user_session.userCode = "102150142")
-UNION ALL
-(SELECT users.name, users.address FROM user_session INNER JOIN users ON user_session.userCode = users.id WHERE user_session.timeInAfternoon != "00:00:00" AND user_session.userCode = "102150142") -->
+                           
                             <td>
                                 <?php
                                 if($row['timeInMorning'] != "00:00:00" && $row['timeOutMorning'] != "00:00:00") {
+                                   $count_day += 0.5;
                                    echo '<span class="fa fa-check green"></span>';
                                 } else if($row['timeInMorning'] != "00:00:00" && $row['timeOutMorning'] == "00:00:00") {
+                                     $error_check = true;
+                                     $count_day += 0.5; 
+                                     $count_error_check ++;
                                      echo '<span class="fa fa-check red"></span>';
                                 }
                                ?>
@@ -175,13 +127,25 @@ UNION ALL
                             <td>
                             <?php
                                 if($row['timeInAfternoon'] != "00:00:00" && $row['timeOutAfternoon'] != "00:00:00") {
-                                   echo '<span class="fa fa-check green"></span>';
+                                    $count_day += 0.5;
+                                    echo '<span class="fa fa-check green"></span>';
                                 } else if($row['timeInAfternoon'] != "00:00:00" && $row['timeOutAfternoon'] == "00:00:00") {
+                                     $error_check = true;
+                                     $count_day += 0.5;
+                                     $count_error_check++;
                                      echo '<span class="fa fa-check red"></span>';
                                 }
                                ?>
                             </td>
-                            <td>Không quẹt thẻ</td>
+                            <td>
+                            <?php
+                              if($error_check){
+                                  echo "Không quẹt thẻ";
+                              }else{
+                                  echo "";
+                              }
+                            ?>
+                            </td>
                             <td>1</td>
                         </tr> 
 
@@ -193,9 +157,9 @@ UNION ALL
                     <div class="name-user-statistics col-md-12 col-lg-12">
                         <label class="total-result-user">KẾT QUẢ THÁNG <?php echo $month ?>/<?php echo $year ?> </label>
                         <ul class="detail-total-result-user">
-                            <li> Tổng công: <?php echo $sum_day?></li>
+                            <li> Tổng công: <?php echo $count_day ?></li>
                             <li> Số ngày nghỉ: <?php echo $day_off?></li>
-                            <li> Số lỗi: <?php echo $mistake?> </li>
+                            <li> Số lỗi: <?php echo  $count_error_check?> </li>
                             <li>   <button type="button" class="btn btn-primary" onclick="onBackMonthlyStatistics()">Back</button> </li>
                         </ul>
                     </div>

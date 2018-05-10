@@ -26,3 +26,19 @@
   - Đưa toàn bộ dữ liệu lên server để lưu lại, phục vụ thống kê.
   - Thông qua hệ thống phần mềm website quản lý sẽ giúp quản lí nhân sự hay HSSV và những bộ phận liên quan biết được việc có mặt hay vắng mặt của nhân viên, HSSV, biết được những nhân viên, HSSV đi trễ hay vị trí của HSSV... tăng hiệu quả hoạt động của công ty nhà trường và giáo dục HSSV. Tuy nhiên hệ thống sẽ không quản lý nếu một HSSV nào đó đã rời khỏi trường học.
 
+
+
+<!-- 
+<?php
+   $server_username = "id2881520_14081997hs";
+   $server_password ="centralpart";
+   $server_host="localhost";
+   $database="id2881520_rfidsystem";
+
+   $connect = mysqli_connect($server_host, $server_username, $server_password, $database);
+   mysqli_query($connect,"SET NAMES 'UTF8'");
+   if(!$connect){
+    echo "not connect to databse".mysqli_connect_error();
+   }
+
+?> -->
