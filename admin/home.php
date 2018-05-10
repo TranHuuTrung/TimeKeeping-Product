@@ -57,7 +57,7 @@
                         <li> - Yêu cầu:
                             <ul class="sub-item-content">
                                 <li> + Dễ sử dụng, ổn định, đa chức năng.</li>
-                                <li> + Hệ thống đọc thẻ từ, thu phát RFID, module ESP8266…. Sử dụng vi điều khiển.</li>
+                                <li> + Hệ thống đọc thẻ từ, thu phát RFID ... Sử dụng vi điều khiển.</li>
                                 <li> + Giá thành rẻ, dễ dàng lắp đặt.</li>
                             </ul>
                         </li>
