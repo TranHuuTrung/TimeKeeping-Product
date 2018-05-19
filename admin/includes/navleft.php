@@ -25,7 +25,7 @@
             </li>
             <li class="">
                 <a href="manager-user.php">
-                    <i class="menu-icon fa fa-tachometer"></i>
+                    <i class="menu-icon fa fa-users"></i>
                     <span class="menu-text"> Manager User </span>
                 </a>
             </li>
@@ -37,24 +37,25 @@
             </li>
 
             <li class="">
+                <a href="monthly-statistics.php">
+                    <i class="menu-icon fa fa-map"></i>
+                    <span class="menu-text"> Monthly Statistics </span>
+                </a>
+            </li>
+            
+            <li class="">
                 <a href="aboutteam.php">
-                    <i class="menu-icon fa  fa-users"></i>
+                    <i class="menu-icon fa fa-question-circle-o"></i>
                     <span class="menu-text">
                         About team
                     </span>
                 </a>
             </li>
             <li class="">
-                <a href="monthly-statistics.php">
-                    <i class="menu-icon fa fa-map"></i>
-                    <span class="menu-text"> Monthly Statistics </span>
-                </a>
-            </li>
-            <li class="">
-                <a href="about-application.php">
-                    <i class="menu-icon fa fa-question-circle-o"></i>
+                <a href="test.php">
+                    <i class="menu-icon fa fa-mortar-board"></i>
                     <span class="menu-text">
-                        About Application
+                        Test
                     </span>
                 </a>
             </li>

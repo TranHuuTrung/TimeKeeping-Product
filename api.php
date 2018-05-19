@@ -21,7 +21,13 @@ if(isset($_GET['userCode'])){
     $current_time = date('H:i');
     echo "Thời gian hiện tại: ".$current_time;
 
-    if($current_time >= date('H:i', strtotime('6:00')) && $current_time <= date('H:i', strtotime('8:30'))) {    
+    if(check_valid_user($userCode) == false) {
+        echo "Not on valid user!!!";
+        $date = date("Y-m-d");
+        $current_time = date('H:i');
+        mysqli_query($GLOBALS['connect'], "INSERT INTO unvalid_session(userCode, unvalid_time, day) 
+            VALUES($userCode, '$current_time', '$date')");
+    } else if($current_time >= date('H:i', strtotime('6:00')) && $current_time <= date('H:i', strtotime('8:30'))) {    
         if(is_inserted_time($id_user_code, "time_open_morning") == false) {
             insert_time($id_user_code, "time_open_morning");
         }
@@ -39,6 +45,10 @@ if(isset($_GET['userCode'])){
         }
     } else {
         echo "Not on valid time!!!";
+        $date = date("Y-m-d");
+        $current_time = date('H:i');
+        mysqli_query($GLOBALS['connect'], "INSERT INTO unvalid_session(userCode, unvalid_time, day) 
+            VALUES($userCode, '$current_time', '$date')");
     }
 }
 
@@ -62,7 +72,15 @@ function insert_time($id_user_code, $time) {
     mysqli_query($GLOBALS['connect'], $sql);
 }
 
-
-//kiem tra xem usercode da co trong csdl chua neu co thi cho update time, neu khong thi dua usercode do va bang unknow_user
-
+//kiem tra xem usercode da co trong csdl chua neu co thi cho update time, neu khong thi dua vao unvalid_session
+function check_valid_user($userCode) {
+    $sql = "SELECT * FROM user WHERE id = $userCode";
+    $query = mysqli_query($GLOBALS['connect'], $sql);
+    $num_rows = mysqli_num_rows($query);
+    if($num_rows > 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
 ?>
