@@ -42,11 +42,6 @@ if(isset($_GET['userCode'])){
     }
 }
 
-
-
-
-
-
 function is_inserted_time($id_user_code, $time) {
     $date = date("Y-m-d");
     var_dump($date);
